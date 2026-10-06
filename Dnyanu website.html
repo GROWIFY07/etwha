@@ -1,0 +1,2443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>eBook</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:#f6f1e8;
+color:#333;
+}
+
+/* HEADER */
+
+header{
+background:#4b2e1e;
+color:white;
+padding:18px 6%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.logo{
+font-size:25px;
+font-weight:bold;
+}
+
+nav{
+display:flex;
+flex-wrap:wrap;
+gap:18px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+cursor:pointer;
+font-size:15px;
+}
+
+nav a:hover{
+color:#f5c76a;
+}
+
+/* HOME */
+
+.home{
+min-height:90vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+color:white;
+
+background:
+linear-gradient(
+rgba(55,32,19,.78),
+rgba(55,32,19,.78)
+),
+url("https://images.unsplash.com/photo-1512820790803-83ca734da794")
+center/cover;
+}
+
+.hero-content{
+max-width:850px;
+padding:30px;
+}
+
+.hero-content h1{
+font-size:55px;
+margin-bottom:20px;
+}
+
+.hero-content p{
+font-size:19px;
+line-height:1.7;
+margin-bottom:25px;
+}
+
+/* SECTION */
+
+.section{
+min-height:90vh;
+padding:80px 8%;
+}
+
+.section-title{
+text-align:center;
+color:#4b2e1e;
+font-size:34px;
+margin-bottom:40px;
+}
+
+/* BUTTON */
+
+.btn{
+border:none;
+background:#d69a38;
+color:white;
+padding:12px 24px;
+border-radius:6px;
+cursor:pointer;
+font-size:15px;
+margin:5px;
+}
+
+.btn:hover{
+background:#b97820;
+}
+
+/* BOOKS */
+
+.search{
+width:100%;
+padding:14px;
+border:1px solid #ccc;
+border-radius:6px;
+margin-bottom:30px;
+}
+
+.books{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(230px,1fr));
+gap:25px;
+}
+
+.book{
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 4px 14px rgba(0,0,0,.12);
+}
+
+.book img{
+width:100%;
+height:230px;
+object-fit:cover;
+border-radius:8px;
+}
+
+.book h3{
+color:#4b2e1e;
+margin-top:15px;
+}
+
+.book p{
+margin-top:10px;
+line-height:1.5;
+}
+
+.price{
+color:#bd7c1e;
+font-size:21px;
+font-weight:bold;
+margin:14px 0;
+}
+
+/* FORM */
+
+.form-box{
+max-width:520px;
+margin:auto;
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 4px 14px rgba(0,0,0,.12);
+}
+
+.form-box input,
+.form-box textarea{
+
+width:100%;
+padding:13px;
+margin:8px 0;
+border:1px solid #ccc;
+border-radius:5px;
+
+}
+
+.form-box textarea{
+height:130px;
+}
+
+/* DASHBOARD */
+
+.dashboard{
+max-width:900px;
+margin:auto;
+}
+
+.upload-box{
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 4px 14px rgba(0,0,0,.12);
+}
+
+.upload-box input{
+width:100%;
+padding:13px;
+margin:8px 0;
+}
+
+.uploaded{
+margin-top:35px;
+}
+
+.uploaded-item{
+
+background:white;
+padding:18px;
+margin:12px 0;
+border-radius:8px;
+
+box-shadow:0 3px 10px rgba(0,0,0,.1);
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+}
+
+/* PAYMENT */
+
+.payment-box{
+
+max-width:500px;
+margin:auto;
+background:white;
+padding:30px;
+border-radius:10px;
+
+box-shadow:0 4px 14px rgba(0,0,0,.12);
+
+}
+
+.payment-box h3{
+color:#4b2e1e;
+margin-bottom:15px;
+}
+
+.payment-method{
+
+border:1px solid #ddd;
+padding:15px;
+margin:10px 0;
+border-radius:6px;
+cursor:pointer;
+
+}
+
+.payment-method:hover{
+background:#f7eddb;
+}
+
+.payment-method.selected{
+
+background:#ead0a2;
+border:2px solid #b97820;
+
+}
+
+/* MY BOOKS */
+
+.mybook{
+
+max-width:750px;
+margin:15px auto;
+
+background:white;
+padding:25px;
+
+border-radius:10px;
+
+box-shadow:0 3px 12px rgba(0,0,0,.12);
+
+}
+
+/* ABOUT */
+
+.about-box{
+
+max-width:850px;
+margin:auto;
+
+background:white;
+padding:35px;
+
+border-radius:10px;
+
+box-shadow:0 4px 14px rgba(0,0,0,.12);
+
+line-height:1.8;
+
+}
+
+/* PAGE SYSTEM */
+
+.main-page{
+display:block;
+}
+
+.sub-page{
+
+display:none;
+
+min-height:100vh;
+
+padding:80px 8%;
+
+}
+
+/* FOOTER */
+
+footer{
+
+background:#321f14;
+
+color:white;
+
+text-align:center;
+
+padding:25px;
+
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+header{
+
+flex-direction:column;
+gap:15px;
+
+}
+
+nav{
+
+justify-content:center;
+gap:10px;
+
+}
+
+.hero-content h1{
+
+font-size:38px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+<div class="logo">
+📚 Dnyaneshwari eBook
+</div>
+
+<nav>
+
+<a onclick="openPage('homePage')">
+Home
+</a>
+
+<a onclick="openPage('booksPage')">
+Books
+</a>
+
+<a onclick="openPage('customerPage')">
+Customer Login
+</a>
+
+<a onclick="openPage('adminLoginPage')">
+Seller Login
+</a>
+
+<a onclick="openPage('myBooksPage')">
+My Books
+</a>
+
+<a onclick="openPage('aboutPage')">
+About
+</a>
+
+<a onclick="openPage('contactPage')">
+Contact
+</a>
+
+</nav>
+
+</header>
+
+
+<!-- ================================================= -->
+<!-- HOME PAGE -->
+<!-- ================================================= -->
+
+<div id="homePage" class="main-page">
+
+
+<section class="home">
+
+<div class="hero-content">
+
+<h1>
+Welcome to Dnyaneshwari eBook
+</h1>
+
+<p>
+Read, purchase and download your favourite
+digital books anytime and anywhere.
+</p>
+
+<button
+class="btn"
+onclick="openPage('booksPage')">
+
+📚 Explore Books
+
+</button>
+
+</div>
+
+</section>
+
+
+<!-- FEATURES -->
+
+<section class="section">
+
+<h2 class="section-title">
+Why Choose Our eBook Platform?
+</h2>
+
+<div class="books">
+
+<div class="book">
+
+<h3>
+📚 Digital Books
+</h3>
+
+<p>
+Access your favourite books digitally
+from anywhere.
+</p>
+
+</div>
+
+
+<div class="book">
+
+<h3>
+💳 Easy Payment
+</h3>
+
+<p>
+Select a book and complete the payment
+before accessing the PDF.
+</p>
+
+</div>
+
+
+<div class="book">
+
+<h3>
+⬇ Download
+</h3>
+
+<p>
+After successful payment,
+download your purchased PDF.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- POPULAR BOOKS -->
+
+<section class="section">
+
+<h2 class="section-title">
+Popular eBooks
+</h2>
+
+<div class="books">
+
+
+<div class="book">
+
+<img
+src="https://images.unsplash.com/photo-1544947950-fa07a98d237f"
+>
+
+<h3>
+Dnyaneshwari
+</h3>
+
+<p>
+Famous spiritual Marathi literature.
+</p>
+
+<div class="price">
+₹199
+</div>
+
+<button
+class="btn"
+onclick="openPage('booksPage')">
+
+📖 View Book
+
+</button>
+
+</div>
+
+
+<div class="book">
+
+<img
+src="https://images.unsplash.com/photo-1516979187457-637abb4f9353"
+>
+
+<h3>
+Bhagavad Gita
+</h3>
+
+<p>
+A spiritual and philosophical book.
+</p>
+
+<div class="price">
+₹149
+</div>
+
+<button
+class="btn"
+onclick="openPage('booksPage')">
+
+📖 View Book
+
+</button>
+
+</div>
+
+
+<div class="book">
+
+<img
+src="https://images.unsplash.com/photo-1519682337058-a94d519337bc"
+>
+
+<h3>
+Marathi Literature
+</h3>
+
+<p>
+Collection of Marathi literary books.
+</p>
+
+<div class="price">
+₹99
+</div>
+
+<button
+class="btn"
+onclick="openPage('booksPage')">
+
+📖 View Book
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ABOUT HOME -->
+
+<section class="section">
+
+<h2 class="section-title">
+About Our Platform
+</h2>
+
+<div class="about-box">
+
+<p>
+
+<b>Dnyaneshwari eBook</b>
+is an online digital book platform.
+
+</p>
+
+<br>
+
+<p>
+
+Users can browse digital books,
+purchase them online and access
+their purchased PDF books.
+
+</p>
+
+<br>
+
+<p>
+
+Seller/Admin can upload PDF books
+with book name and price.
+
+</p>
+
+</div>
+
+</section>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- BOOKS PAGE -->
+<!-- ================================================= -->
+
+<div id="booksPage" class="sub-page">
+
+<h2 class="section-title">
+Available eBooks
+</h2>
+
+
+<input
+class="search"
+type="text"
+placeholder="🔍 Search Books..."
+onkeyup="searchBooks(this.value)"
+>
+
+
+<div class="books" id="bookList">
+
+
+<!-- DEFAULT BOOK 1 -->
+
+<div
+class="book"
+data-name="Dnyaneshwari">
+
+<img
+src="https://images.unsplash.com/photo-1544947950-fa07a98d237f"
+>
+
+<h3>
+Dnyaneshwari
+</h3>
+
+<p>
+Famous spiritual Marathi literature.
+</p>
+
+<div class="price">
+₹199
+</div>
+
+<button
+class="btn"
+onclick="viewBook('Dnyaneshwari',199)">
+
+📖 View Book
+
+</button>
+
+</div>
+
+
+<!-- DEFAULT BOOK 2 -->
+
+<div
+class="book"
+data-name="Bhagavad Gita">
+
+<img
+src="https://images.unsplash.com/photo-1516979187457-637abb4f9353"
+>
+
+<h3>
+Bhagavad Gita
+</h3>
+
+<p>
+A spiritual and philosophical book.
+</p>
+
+<div class="price">
+₹149
+</div>
+
+<button
+class="btn"
+onclick="viewBook('Bhagavad Gita',149)">
+
+📖 View Book
+
+</button>
+
+</div>
+
+
+<!-- DEFAULT BOOK 3 -->
+
+<div
+class="book"
+data-name="Marathi Literature">
+
+<img
+src="https://images.unsplash.com/photo-1519682337058-a94d519337bc"
+>
+
+<h3>
+Marathi Literature
+</h3>
+
+<p>
+Collection of Marathi literary books.
+</p>
+
+<div class="price">
+₹99
+</div>
+
+<button
+class="btn"
+onclick="viewBook('Marathi Literature',99)">
+
+📖 View Book
+
+</button>
+
+</div>
+
+
+</div>
+
+
+<br><br>
+
+<button
+class="btn"
+onclick="openPage('homePage')">
+
+⬅ Back Home
+
+</button>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- CUSTOMER LOGIN -->
+<!-- ================================================= -->
+
+<div id="customerPage" class="sub-page">
+
+<h2 class="section-title">
+Customer Login
+</h2>
+
+<div class="form-box">
+
+<input
+type="email"
+id="customerEmail"
+placeholder="Enter Email"
+>
+
+<input
+type="password"
+id="customerPassword"
+placeholder="Enter Password"
+>
+
+<button
+class="btn"
+onclick="customerLogin()">
+
+Login
+
+</button>
+
+<br><br>
+
+<p>
+Don't have an account?
+</p>
+
+<button
+class="btn"
+onclick="openPage('registerPage')">
+
+Create Account
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- REGISTER -->
+<!-- ================================================= -->
+
+<div id="registerPage" class="sub-page">
+
+<h2 class="section-title">
+Customer Registration
+</h2>
+
+<div class="form-box">
+
+<input
+type="text"
+id="regName"
+placeholder="Full Name"
+>
+
+<input
+type="email"
+id="regEmail"
+placeholder="Email Address"
+>
+
+<input
+type="password"
+id="regPassword"
+placeholder="Create Password"
+>
+
+<button
+class="btn"
+onclick="registerCustomer()">
+
+Register
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- ADMIN LOGIN -->
+<!-- ================================================= -->
+
+<div id="adminLoginPage" class="sub-page">
+
+<h2 class="section-title">
+Admin Login
+</h2>
+
+<div class="form-box">
+
+<input
+type="text"
+id="adminUsername"
+placeholder="Username"
+>
+
+<input
+type="password"
+id="adminPassword"
+placeholder="Password"
+>
+
+<button
+class="btn"
+onclick="adminLogin()">
+
+Login
+
+</button>
+
+<br><br>
+
+<p>
+<b>Demo admin Login</b>
+</p>
+
+<p>
+Username: admin
+</p>
+
+<p>
+Password: 1234
+</p>
+
+</div>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- admin DASHBOARD -->
+<!-- ================================================= -->
+
+<div id="adminDashboardPage" class="sub-page">
+
+<h2 class="section-title">
+Admin Dashboard
+</h2>
+
+<div class="dashboard">
+
+
+<div class="upload-box">
+
+<h3>
+📤 Upload eBook PDF
+</h3>
+
+<br>
+
+<input
+type="text"
+id="bookName"
+placeholder="Enter Book Name"
+>
+
+<input
+type="number"
+id="bookPrice"
+placeholder="Enter Book Price"
+>
+
+<input
+type="file"
+id="bookPDF"
+accept=".pdf,application/pdf"
+>
+
+<br>
+
+<button
+class="btn"
+onclick="uploadBook()">
+
+📤 Upload PDF
+
+</button>
+
+</div>
+
+
+<div class="uploaded">
+
+<h3>
+Uploaded Books
+</h3>
+
+<div id="uploadedBooks">
+
+<p>
+No uploaded books yet.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- PAYMENT -->
+<!-- ================================================= -->
+
+<div id="paymentPage" class="sub-page">
+
+<h2 class="section-title">
+Payment
+</h2>
+
+<div class="payment-box">
+
+<h3 id="selectedBookName">
+Book Name
+</h3>
+
+<p>
+Price:
+₹<span id="selectedBookPrice">
+0
+</span>
+</p>
+
+<br>
+
+<p>
+Select Payment Method
+</p>
+
+
+<div
+class="payment-method"
+onclick="choosePayment(this,'UPI')">
+
+📱 UPI
+
+</div>
+
+
+<div
+class="payment-method"
+onclick="choosePayment(this,'Card')">
+
+💳 Debit / Credit Card
+
+</div>
+
+
+<div
+class="payment-method"
+onclick="choosePayment(this,'Net Banking')">
+
+🏦 Net Banking
+
+</div>
+
+
+<div
+class="payment-method"
+onclick="choosePayment(this,'Demo Payment')">
+
+🧾 Demo Payment
+
+</div>
+
+
+<br>
+
+<button
+class="btn"
+onclick="completePayment()">
+
+💳 Pay Now
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- MY BOOKS -->
+<!-- ================================================= -->
+
+<div id="myBooksPage" class="sub-page">
+
+<h2 class="section-title">
+
+📚 My Purchased Books
+
+</h2>
+
+<div id="myBookList">
+
+<p style="text-align:center;">
+
+No purchased books yet.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- ABOUT -->
+<!-- ================================================= -->
+
+<div id="aboutPage" class="sub-page">
+
+<h2 class="section-title">
+
+About Dnyaneshwari eBook
+
+</h2>
+
+<div class="about-box">
+
+<p>
+
+<b>Dnyaneshwari eBook</b>
+is an online digital book platform
+where users can explore, purchase,
+read and download eBooks.
+
+</p>
+
+<br>
+
+<p>
+
+Customers can create an account,
+login, select a book and complete
+the payment.
+
+</p>
+
+<br>
+
+<p>
+
+After successful payment,
+the purchased book becomes
+available in the My Books section.
+
+</p>
+
+<br>
+
+<p>
+
+Admin/Admin can login and upload
+PDF books with book name and price.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- CONTACT -->
+<!-- ================================================= -->
+
+<div id="contactPage" class="sub-page">
+
+<h2 class="section-title">
+
+Contact Us
+
+</h2>
+
+<div class="form-box">
+
+<input
+type="text"
+id="contactName"
+placeholder="Your Name"
+>
+
+<input
+type="email"
+id="contactEmail"
+placeholder="Your Email"
+>
+
+<textarea
+id="contactMessage"
+placeholder="Your Message">
+</textarea>
+
+<button
+class="btn"
+onclick="sendMessage()">
+
+Send Message
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<p>
+© 2026 Dnyaneshwari eBook
+</p>
+
+<p>
+Digital eBook Reading Platform
+</p>
+
+</footer>
+
+
+<script>
+
+
+/* =================================================
+OPEN PAGE
+================================================= */
+
+function openPage(page){
+
+document.querySelectorAll(".main-page")
+.forEach(function(item){
+
+item.style.display="none";
+
+});
+
+
+document.querySelectorAll(".sub-page")
+.forEach(function(item){
+
+item.style.display="none";
+
+});
+
+
+document.getElementById(page)
+.style.display="block";
+
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+}
+
+
+/* =================================================
+CUSTOMER REGISTER
+================================================= */
+
+function registerCustomer(){
+
+let name=
+document.getElementById("regName").value.trim();
+
+let email=
+document.getElementById("regEmail").value.trim();
+
+let password=
+document.getElementById("regPassword").value;
+
+
+if(
+name==="" ||
+email==="" ||
+password===""
+){
+
+alert(
+"Please fill all details."
+);
+
+return;
+
+}
+
+
+localStorage.setItem(
+"customerName",
+name
+);
+
+localStorage.setItem(
+"customerEmail",
+email
+);
+
+localStorage.setItem(
+"customerPassword",
+password
+);
+
+
+alert(
+"Registration successful!"
+);
+
+
+document.getElementById(
+"regName"
+).value="";
+
+
+document.getElementById(
+"regEmail"
+).value="";
+
+
+document.getElementById(
+"regPassword"
+).value="";
+
+
+openPage(
+"customerPage"
+);
+
+}
+
+
+/* =================================================
+CUSTOMER LOGIN
+================================================= */
+
+function customerLogin(){
+
+let email=
+document.getElementById(
+"customerEmail"
+).value.trim();
+
+let password=
+document.getElementById(
+"customerPassword"
+).value;
+
+
+let savedEmail=
+localStorage.getItem(
+"customerEmail"
+);
+
+let savedPassword=
+localStorage.getItem(
+"customerPassword"
+);
+
+
+if(
+email===savedEmail &&
+password===savedPassword
+){
+
+localStorage.setItem(
+"customerLoggedIn",
+"yes"
+);
+
+
+alert(
+"Customer Login Successful!"
+);
+
+
+openPage(
+"booksPage"
+);
+
+}
+
+else{
+
+alert(
+"Invalid login details."
+);
+
+}
+
+}
+
+
+/* =================================================
+ADMIN LOGIN
+================================================= */
+
+function adminLogin(){
+
+let username=
+document.getElementById(
+"adminUsername"
+).value.trim();
+
+let password=
+document.getElementById(
+"adminPassword"
+).value;
+
+
+if(
+username==="admin" &&
+password==="1234"
+){
+
+localStorage.setItem(
+"adminLoggedIn",
+"yes"
+);
+
+
+alert(
+"admin Login Successful!"
+);
+
+
+displayUploadedBooks();
+
+
+openPage(
+"adminDashboardPage"
+);
+
+}
+
+else{
+
+alert(
+"Invalid admin Login."
+);
+
+}
+
+}
+
+
+/* =================================================
+UPLOAD PDF
+================================================= */
+
+function uploadBook(){
+
+let name=
+document.getElementById(
+"bookName"
+).value.trim();
+
+let price=
+document.getElementById(
+"bookPrice"
+).value.trim();
+
+let file=
+document.getElementById(
+"bookPDF"
+).files[0];
+
+
+if(
+name==="" ||
+price==="" ||
+!file
+){
+
+alert(
+"Please enter Book Name, Price and select PDF."
+);
+
+return;
+
+}
+
+
+/* CHECK PDF */
+
+if(
+file.type!=="application/pdf"
+){
+
+alert(
+"Please select PDF file only."
+);
+
+return;
+
+}
+
+
+/* CREATE UNIQUE BOOK ID */
+
+let bookId=
+"book_"+Date.now();
+
+
+/* GET OLD BOOKS */
+
+let books=
+JSON.parse(
+localStorage.getItem(
+"uploadedBooks"
+) || "[]"
+);
+
+
+/* STORE BOOK INFORMATION */
+
+books.push({
+
+id:bookId,
+
+name:name,
+
+price:Number(price),
+
+fileName:file.name
+
+});
+
+
+/* SAVE BOOK INFORMATION */
+
+localStorage.setItem(
+"uploadedBooks",
+JSON.stringify(books)
+);
+
+
+/* STORE ACTUAL PDF IN CURRENT SESSION */
+
+window.pdfFiles=
+window.pdfFiles || {};
+
+
+window.pdfFiles[bookId]=file;
+
+
+/* ALSO STORE BY NAME */
+
+window.pdfFiles[name]=file;
+
+
+alert(
+"PDF uploaded successfully!"
+);
+
+
+/* CLEAR FORM */
+
+document.getElementById(
+"bookName"
+).value="";
+
+
+document.getElementById(
+"bookPrice"
+).value="";
+
+
+document.getElementById(
+"bookPDF"
+).value="";
+
+
+/* UPDATE BOTH PAGES */
+
+displayUploadedBooks();
+
+displayBooks();
+
+
+/* OPEN BOOKS PAGE */
+
+openPage(
+"booksPage"
+);
+
+}
+
+
+/* =================================================
+DISPLAY UPLOADED BOOKS IN admin DASHBOARD
+================================================= */
+
+function displayUploadedBooks(){
+
+let container=
+document.getElementById(
+"uploadedBooks"
+);
+
+
+if(!container){
+
+return;
+
+}
+
+
+let books=
+JSON.parse(
+localStorage.getItem(
+"uploadedBooks"
+) || "[]"
+);
+
+
+container.innerHTML="";
+
+
+if(books.length===0){
+
+container.innerHTML=
+"<p>No uploaded books yet.</p>";
+
+return;
+
+}
+
+
+books.forEach(function(book){
+
+container.innerHTML+=`
+
+<div class="uploaded-item">
+
+<div>
+
+<b>📕 ${book.name}</b>
+
+<br>
+
+Price: ₹${book.price}
+
+<br>
+
+<small>
+PDF: ${book.fileName}
+</small>
+
+</div>
+
+<button
+class="btn"
+onclick="openUploadedBook('${book.id}')">
+
+📖 View
+
+</button>
+
+</div>
+
+`;
+
+});
+
+}
+
+
+/* =================================================
+DISPLAY ALL BOOKS ON BOOK PAGE
+================================================= */
+
+function displayBooks(){
+
+let container=
+document.getElementById(
+"bookList"
+);
+
+
+if(!container){
+
+return;
+
+}
+
+
+/* KEEP DEFAULT BOOKS */
+
+let books=
+JSON.parse(
+localStorage.getItem(
+"uploadedBooks"
+) || "[]"
+);
+
+
+/* REMOVE PREVIOUS UPLOADED BOOKS */
+
+document.querySelectorAll(
+".uploaded-dynamic-book"
+).forEach(function(item){
+
+item.remove();
+
+});
+
+
+/* ADD UPLOADED BOOKS */
+
+books.forEach(function(book){
+
+let div=
+document.createElement("div");
+
+
+div.className=
+"book uploaded-dynamic-book";
+
+
+div.setAttribute(
+"data-name",
+book.name
+);
+
+
+div.innerHTML=`
+
+<img
+src="https://images.unsplash.com/photo-1544947950-fa07a98d237f"
+>
+
+<h3>
+${book.name}
+</h3>
+
+<p>
+Digital PDF eBook
+</p>
+
+<div class="price">
+₹${book.price}
+</div>
+
+<button
+class="btn"
+onclick="viewUploadedBook('${book.id}')">
+
+📖 View Book
+
+</button>
+
+`;
+
+
+container.appendChild(div);
+
+});
+
+}
+
+
+/* =================================================
+VIEW DEFAULT BOOK
+================================================= */
+
+function viewBook(name,price){
+
+let loggedIn=
+localStorage.getItem(
+"customerLoggedIn"
+);
+
+
+if(loggedIn!=="yes"){
+
+alert(
+"Please login as Customer first."
+);
+
+
+openPage(
+"customerPage"
+);
+
+return;
+
+}
+
+
+/* FIND UPLOADED PDF */
+
+let books=
+JSON.parse(
+localStorage.getItem(
+"uploadedBooks"
+) || "[]"
+);
+
+
+let uploaded=
+books.find(function(book){
+
+return book.name===name;
+
+});
+
+
+/* SAVE SELECTED BOOK */
+
+window.selectedBook=name;
+
+window.selectedPrice=price;
+
+window.selectedBookId=
+uploaded ? uploaded.id : null;
+
+
+document.getElementById(
+"selectedBookName"
+).innerText=name;
+
+
+document.getElementById(
+"selectedBookPrice"
+).innerText=price;
+
+
+window.selectedPayment="";
+
+
+document.querySelectorAll(
+".payment-method"
+).forEach(function(item){
+
+item.classList.remove(
+"selected"
+);
+
+});
+
+
+openPage(
+"paymentPage"
+);
+
+}
+
+
+/* =================================================
+VIEW UPLOADED BOOK
+================================================= */
+
+function viewUploadedBook(id){
+
+let books=
+JSON.parse(
+localStorage.getItem(
+"uploadedBooks"
+) || "[]"
+);
+
+
+let book=
+books.find(function(item){
+
+return item.id===id;
+
+});
+
+
+if(!book){
+
+alert(
+"Book not found."
+);
+
+return;
+
+}
+
+
+viewUploadedBookAfterLogin(book);
+
+}
+
+
+/* =================================================
+UPLOADED BOOK AFTER LOGIN
+================================================= */
+
+function viewUploadedBookAfterLogin(book){
+
+let loggedIn=
+localStorage.getItem(
+"customerLoggedIn"
+);
+
+
+if(loggedIn!=="yes"){
+
+alert(
+"Please login as Customer first."
+);
+
+
+window.pendingBookId=
+book.id;
+
+
+openPage(
+"customerPage"
+);
+
+return;
+
+}
+
+
+window.selectedBook=
+book.name;
+
+window.selectedPrice=
+book.price;
+
+window.selectedBookId=
+book.id;
+
+
+document.getElementById(
+"selectedBookName"
+).innerText=
+book.name;
+
+
+document.getElementById(
+"selectedBookPrice"
+).innerText=
+book.price;
+
+
+window.selectedPayment="";
+
+
+document.querySelectorAll(
+".payment-method"
+).forEach(function(item){
+
+item.classList.remove(
+"selected"
+);
+
+});
+
+
+openPage(
+"paymentPage"
+);
+
+}
+
+
+/* =================================================
+PAYMENT METHOD
+================================================= */
+
+function choosePayment(
+element,
+method
+){
+
+window.selectedPayment=
+method;
+
+
+document.querySelectorAll(
+".payment-method"
+).forEach(function(item){
+
+item.classList.remove(
+"selected"
+);
+
+});
+
+
+element.classList.add(
+"selected"
+);
+
+}
+
+
+/* =================================================
+COMPLETE PAYMENT
+================================================= */
+
+function completePayment(){
+
+if(
+!window.selectedPayment
+){
+
+alert(
+"Please select payment method."
+);
+
+return;
+
+}
+
+
+let purchased=
+JSON.parse(
+localStorage.getItem(
+"purchasedBooks"
+) || "[]"
+);
+
+
+/* BOOK OBJECT */
+
+let newBook={
+
+name:window.selectedBook,
+
+price:window.selectedPrice,
+
+id:window.selectedBookId || null
+
+};
+
+
+/* CHECK DUPLICATE */
+
+let alreadyPurchased=
+purchased.some(function(book){
+
+return book.name===
+newBook.name;
+
+});
+
+
+if(!alreadyPurchased){
+
+purchased.push(newBook);
+
+}
+
+
+/* SAVE */
+
+localStorage.setItem(
+"purchasedBooks",
+JSON.stringify(purchased)
+);
+
+
+alert(
+"Payment Successful!\n\n"+
+window.selectedBook+
+" is now available in My Books."
+);
+
+
+/* LOAD */
+
+loadMyBooks();
+
+
+openPage(
+"myBooksPage"
+);
+
+}
+
+
+/* =================================================
+MY BOOKS
+================================================= */
+
+function loadMyBooks(){
+
+let container=
+document.getElementById(
+"myBookList"
+);
+
+
+if(!container){
+
+return;
+
+}
+
+
+let purchased=
+JSON.parse(
+localStorage.getItem(
+"purchasedBooks"
+) || "[]"
+);
+
+
+container.innerHTML="";
+
+
+if(purchased.length===0){
+
+container.innerHTML=
+"<p style='text-align:center;'>"+
+"No purchased books yet."+
+"</p>";
+
+return;
+
+}
+
+
+purchased.forEach(function(book){
+
+container.innerHTML+=`
+
+<div class="mybook">
+
+<h3>
+📖 ${book.name}
+</h3>
+
+<p>
+Price: ₹${book.price}
+</p>
+
+<p>
+✅ Payment completed successfully.
+</p>
+
+<br>
+
+<button
+class="btn"
+onclick="openPurchasedPDF('${book.id}','${book.name}')">
+
+📖 Open PDF
+
+</button>
+
+
+<button
+class="btn"
+onclick="downloadPurchasedPDF('${book.id}','${book.name}')">
+
+⬇ Download PDF
+
+</button>
+
+</div>
+
+`;
+
+});
+
+}
+
+
+/* =================================================
+OPEN PURCHASED PDF
+================================================= */
+
+function openPurchasedPDF(id,name){
+
+let file=null;
+
+
+/* FIND USING ID */
+
+if(
+window.pdfFiles &&
+id &&
+window.pdfFiles[id]
+){
+
+file=
+window.pdfFiles[id];
+
+}
+
+
+/* FIND USING NAME */
+
+if(
+!file &&
+window.pdfFiles &&
+window.pdfFiles[name]
+){
+
+file=
+window.pdfFiles[name];
+
+}
+
+
+if(!file){
+
+alert(
+"PDF is not available in this browser session. Please upload the PDF again from admin Dashboard."
+);
+
+return;
+
+}
+
+
+let url=
+URL.createObjectURL(file);
+
+
+window.open(
+url,
+"_blank"
+);
+
+}
+
+
+/* =================================================
+DOWNLOAD PURCHASED PDF
+================================================= */
+
+function downloadPurchasedPDF(id,name){
+
+let file=null;
+
+
+/* FIND USING ID */
+
+if(
+window.pdfFiles &&
+id &&
+window.pdfFiles[id]
+){
+
+file=
+window.pdfFiles[id];
+
+}
+
+
+/* FIND USING NAME */
+
+if(
+!file &&
+window.pdfFiles &&
+window.pdfFiles[name]
+){
+
+file=
+window.pdfFiles[name];
+
+}
+
+
+if(!file){
+
+alert(
+"PDF is not available in this browser session. Please upload the PDF again from admin Dashboard."
+);
+
+return;
+
+}
+
+
+let url=
+URL.createObjectURL(file);
+
+
+let link=
+document.createElement("a");
+
+
+link.href=url;
+
+link.download=
+file.name;
+
+
+document.body.appendChild(
+link
+);
+
+
+link.click();
+
+
+document.body.removeChild(
+link
+);
+
+}
+
+
+/* =================================================
+SEARCH BOOKS
+================================================= */
+
+function searchBooks(value){
+
+let books=
+document.querySelectorAll(
+"#bookList .book"
+);
+
+
+books.forEach(function(book){
+
+let name=
+book.getAttribute(
+"data-name"
+).toLowerCase();
+
+
+if(
+name.includes(
+value.toLowerCase()
+)
+){
+
+book.style.display=
+"block";
+
+}
+
+else{
+
+book.style.display=
+"none";
+
+}
+
+});
+
+}
+
+
+/* =================================================
+CONTACT
+================================================= */
+
+function sendMessage(){
+
+let name=
+document.getElementById(
+"contactName"
+).value;
+
+let email=
+document.getElementById(
+"contactEmail"
+).value;
+
+let message=
+document.getElementById(
+"contactMessage"
+).value;
+
+
+if(
+name==="" ||
+email==="" ||
+message===""
+){
+
+alert(
+"Please fill all details."
+);
+
+return;
+
+}
+
+
+alert(
+"Thank you "+name+
+"! Your message has been submitted."
+);
+
+
+document.getElementById(
+"contactName"
+).value="";
+
+
+document.getElementById(
+"contactEmail"
+).value="";
+
+
+document.getElementById(
+"contactMessage"
+).value="";
+
+}
+
+
+/* =================================================
+PAGE LOAD
+================================================= */
+
+window.onload=function(){
+
+displayUploadedBooks();
+
+displayBooks();
+
+loadMyBooks();
+
+};
+
+</script>
+
+</body>
+
+</html>
+```
